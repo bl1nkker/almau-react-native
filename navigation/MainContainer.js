@@ -4,14 +4,14 @@ import {createBottomTabNavigation, createBottomTabNavigator} from '@react-naviga
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 // Screens
-import RedCardScreen from './screens/RedCardScreen'
-import BlueCardScreen from './screens/BlueCardScreen'
-import GreenCardScreen from './screens/GreenCardScreen'
+import InDevelopmentScreen from './screens/InDevelopmentScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import CoffeeScreen from './screens/CoffeeScreen'
 
 // Screen names
-const redCard = 'RedCard'
-const blueCard = 'BlueCard'
-const greenCard = 'GreenCard'
+const firstTab = 'In Development'
+const secondTab = 'Coffee'
+const thirdTab = 'Profile'
 
 const Tab = createBottomTabNavigator()
 
@@ -19,16 +19,16 @@ export default function MainContainer({navigation}) {
     return (
         <NavigationContainer>
             <Tab.Navigator
-            initialRouteName={redCard}
+            initialRouteName={firstTab}
             screenOptions={({route}) => ({
                 tabBarIcon: ({focused, color, size}) => {
                     let iconName;
-                    if (route.name === redCard) {
-                        iconName = focused ? 'home' : 'home-outline'
-                    } else if (route.name === blueCard) {
+                    if (route.name === firstTab) {
                         iconName = focused ? 'settings' : 'settings-outline'
-                    } else if (route.name === greenCard) {
-                        iconName = focused ? 'list-circle' : 'list-outline'
+                    } else if (route.name === secondTab) {
+                        iconName = focused ? 'heart' : 'heart-outline'
+                    } else if (route.name === thirdTab) {
+                        iconName = focused ? 'person' : 'person-outline'
                     }
                     return <Ionicons name={iconName} size={size} color={color} />
                 }
@@ -38,9 +38,9 @@ export default function MainContainer({navigation}) {
                 inactiveTintColor: 'gray',
             }}
             >
-                <Tab.Screen name={redCard} component={RedCardScreen} />
-                <Tab.Screen name={blueCard} component={BlueCardScreen} />
-                <Tab.Screen name={greenCard} component={GreenCardScreen} />
+                <Tab.Screen name={firstTab} component={InDevelopmentScreen} />
+                <Tab.Screen name={secondTab} component={CoffeeScreen} />
+                <Tab.Screen name={thirdTab} component={ProfileScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     )
