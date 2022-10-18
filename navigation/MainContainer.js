@@ -1,4 +1,5 @@
 import React from 'react'
+import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigation, createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -21,6 +22,7 @@ export default function MainContainer({navigation}) {
             <Tab.Navigator
             initialRouteName={firstTab}
             screenOptions={({route}) => ({
+                headerShown: false,
                 tabBarIcon: ({focused, color, size}) => {
                     let iconName;
                     if (route.name === firstTab) {
